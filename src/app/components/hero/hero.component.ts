@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   trigger,
@@ -51,7 +51,17 @@ import {
 })
 export class HeroComponent {
 
+  experienceCount = 0;
+  projectsCount = 0;
+  teamsLeadingCount=0;
+  @ViewChild('statsBlock') statsBlock!:ElementRef;
+  private observer!:IntersectionObserver;
+  private hasAnimated = false;
+  private isAnimating = false;
+  private hasEntered = false;
+
   imageVisible = true;
+  
 
   @HostListener('window:scroll')
   @ViewChildren('headingEl') headings!: QueryList<ElementRef>;
@@ -60,6 +70,31 @@ export class HeroComponent {
     this.imageVisible = window.scrollY < 120;
   }
   ngAfterViewInit(): void {   
+
+    if (!this.statsBlock) return;
+    this.observer = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting && !this.isAnimating) {
+      this.isAnimating = true;
+
+      this.animateCounter('experience', 16, 1000);
+      this.animateCounter('projects', 135, 1000);
+      this.animateCounter('teams', 8, 1000);
+    }
+    
+
+    if (!entry.isIntersecting) {
+      this.isAnimating = false;
+      this.experienceCount = 0;
+      this.projectsCount = 0;
+      this.teamsLeadingCount=0;
+    }
+  },
+  { threshold: 0.4 }
+);
+    this.observer.observe(this.statsBlock.nativeElement);
+
+    
 
     this.headings.forEach((item, index) => {
 
@@ -82,4 +117,37 @@ export class HeroComponent {
       observer.observe(item.nativeElement);
     });
   }
+  private animateCounter(
+    type: 'experience' | 'projects' | 'teams',
+    target: number,
+    duration: number
+  ) {
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const value = Math.floor(progress * target);
+
+      if (type === 'experience') {
+        this.experienceCount = value;
+      }
+      if(type==='projects') {
+        this.projectsCount = value;
+      }
+      if(type==='teams') {
+        this.teamsLeadingCount = value;
+      }
+
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+
+  }
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    }
 }
