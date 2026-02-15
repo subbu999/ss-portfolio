@@ -4,8 +4,16 @@
 
         <!-- Heading -->
         <div class="text-center mb-5">
-            <p class="section-label">CAREER PATH</p>
-            <h2 class="section-title">
+            <p class="section-label" #headingEl [@headingAnim]="{
+  value: headingVisibility[0] ? 'visible' : 'hidden',
+  params: { delay: 1000 }
+}">CAREER
+                PATH
+            </p>
+            <h2 class="section-title" #headingEl [@headingAnim]="{
+  value: headingVisibility[0] ? 'visible' : 'hidden',
+  params: { delay: 2000 }
+}">
                 My Professional <span>Journey</span>
             </h2>
         </div>

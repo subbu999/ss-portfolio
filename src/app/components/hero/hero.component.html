@@ -15,19 +15,25 @@
         </div>
 
         <!-- Name -->
-        <h1 class="hero-name mb-3" @fadeUp>
+        <h1 class="hero-name mb-3" #headingEl [@headingAnim]="{
+  value: headingVisibility[0] ? 'visible' : 'hidden',
+  params: { delay: 800 }
+}">
             Srikanth <span>Settipalli</span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="hero-subtitle mb-4" @fadeUp>
+        <p class="hero-subtitle mb-4" #headingEl [@headingAnim]="{
+  value: headingVisibility[0] ? 'visible' : 'hidden',
+  params: { delay: 1600 }
+}">
             Vice President — Global Project Delivery & Operations<br>
             <span>16+ years of expertise transforming enterprise operations through ServiceNow, strategic leadership,
                 and multi-domain project delivery.</span>
         </p>
 
         <!-- Stats -->
-        <div class="stats row justify-content-center mb-5 g-4 mt-2" @fadeUp>
+        <div class="stats row justify-content-center mb-5 g-4 mt-2">
 
             <div class="col-6 col-md-3">
                 <h4>$35M+</h4>
@@ -47,7 +53,10 @@
         </div>
 
         <!-- Buttons -->
-        <div class="d-flex justify-content-center gap-3 flex-wrap" @fadeUp>
+        <div class="d-flex justify-content-center gap-3 flex-wrap" #headingEl [@headingAnim]="{
+  value: headingVisibility[0] ? 'visible' : 'hidden',
+  params: { delay: 2400 }
+}">
             <button class="btn-primary-custom">
                 Explore My Work
             </button>
