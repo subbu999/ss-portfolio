@@ -1,0 +1,62 @@
+<section class="hero-section d-flex align-items-center text-center">
+
+    <div class="container">
+
+        <!-- Profile Image -->
+        <div class="profile-wrapper mb-4" [@fadeScale]="imageVisible ? 'visible' : 'hidden'">
+
+            <img src="hero-img.png" alt="Profile" class="profile-img">
+        </div>
+
+        <!-- Status Pill -->
+        <div class="status-pill mb-4" @fadeUp>
+            <span class="dot"></span>
+            AVAILABLE FOR OPPORTUNITIES
+        </div>
+
+        <!-- Name -->
+        <h1 class="hero-name mb-3" @fadeUp>
+            Srikanth <span>Settipalli</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle mb-4" @fadeUp>
+            Vice President — Global Project Delivery & Operations<br>
+            <span>16+ years of expertise transforming enterprise operations through ServiceNow, strategic leadership,
+                and multi-domain project delivery.</span>
+        </p>
+
+        <!-- Stats -->
+        <div class="stats row justify-content-center mb-5 g-4 mt-2" @fadeUp>
+
+            <div class="col-6 col-md-3">
+                <h4>$35M+</h4>
+                <p>Projects Delivered</p>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h4>8+</h4>
+                <p>Teams Led</p>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h4>16+</h4>
+                <p>Years Experience</p>
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center gap-3 flex-wrap" @fadeUp>
+            <button class="btn-primary-custom">
+                Explore My Work
+            </button>
+
+            <button class="btn-outline-custom">
+                Let’s Connect
+            </button>
+        </div>
+
+    </div>
+
+</section>

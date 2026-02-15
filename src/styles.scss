@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/* =============================
+   GLOBAL THEME VARIABLES
+============================= */
+
+:root {
+  --primary-bg: #050B1A;
+  --nav-dark: #07122A;
+  --accent-yellow: #F4B400;
+  --accent-yellow-light: #FFCE47;
+  --text-primary: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --text-muted2: #8c939fdd;
+}
+
+/* Reset */
+body {
+  margin: 0;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}/* You can add global styles to this file, and also import other style files */
+
+/* Scroll bar styles */
+/* Width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #061326;   /* dark navy */
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: #1a2b4a;   /* slightly lighter blue */
+  border-radius: 10px;
+  border: 2px solid #061326; /* creates inner padding illusion */
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #243a63;
+}
+// for firefox support
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a2b4a #061326;
+}

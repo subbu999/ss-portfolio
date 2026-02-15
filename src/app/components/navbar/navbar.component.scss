@@ -1,0 +1,48 @@
+.navbar {
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: linear-gradient(rgba(5, 5, 37,0.67),rgba(0, 0, 35,0.67));
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.logo-img img{
+  height: 50px;
+}
+
+/* Nav Links */
+.nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-yellow);
+}
+
+/* Active-like glow effect */
+.navbar.scrolled .nav-link {
+  color: var(--text-primary);
+}
+
+/* Remove default toggler icon background */
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Mobile background */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(7, 18, 42, 0.98);
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+}

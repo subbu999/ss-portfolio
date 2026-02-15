@@ -1,0 +1,104 @@
+<section class="about-section py-5" #aboutSection>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">ABOUT
+                    ME</p>
+
+                <h2 class="section-title" #headingEl [@headingAnim]="headingVisibility[1] ? 'visible' : 'hidden'">
+                    A Journey of Continuous
+                    <span>Evolution</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row align-items-center gy-5 py3">
+
+            <!-- LEFT SIDE -->
+            <div class="col-lg-6">
+                <p class="section-text" #paragraphEl [@paragraphAnim]="paragraphVisibility[0] ? 'visible' : 'hidden'">
+                    With over <strong>16 years of diverse experience</strong>,
+                    I've navigated the full spectrum of technology and business leadership.
+                    My career began in web development, where I built a strong technical foundation
+                    before transitioning into business analysis and ServiceNow expertise.
+                </p>
+
+                <p class="section-text" #paragraphEl [@paragraphAnim]="paragraphVisibility[1] ? 'visible' : 'hidden'">
+                    Today, I lead <strong>global project delivery operations</strong>,
+                    overseeing stakeholder management, strategic planning, budget allocation,
+                    and cross-functional team leadership. I've successfully delivered
+                    <span class="highlight">$35M+ in projects</span>
+                    in a single year across financial services, healthcare, retail,
+                    e-commerce, government, and pharma sectors.
+                </p>
+
+                <p class="section-text" #paragraphEl [@paragraphAnim]="paragraphVisibility[2] ? 'visible' : 'hidden'">
+                    My unique blend of deep technical knowledge and executive leadership
+                    enables me to bridge the gap between technology and business outcomes,
+                    driving innovation and operational excellence at scale.
+                </p>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-lg-6">
+
+                <div class="row g-4">
+
+                    <!-- Card 1 -->
+                    <div class="col-md-6">
+                        <div class="about-card" #cardEl [@cardAnim]="cardVisibility[0] ? 'visible' : 'hidden'">
+                            <div class="icon-box">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <p class="card-label">STARTED AS</p>
+                            <h6>Web Developer</h6>
+                            <p class="card-subtext">Building full-stack applications</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-md-6">
+                        <div class="about-card" #cardEl [@cardAnim]="cardVisibility[1] ? 'visible' : 'hidden'">
+                            <div class="icon-box">
+                                <i class="bi bi-database"></i>
+                            </div>
+                            <p class="card-label">EVOLVED INTO</p>
+                            <h6>ServiceNow Expert</h6>
+                            <p class="card-subtext">Admin, Developer & Lead</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-md-6">
+                        <div class="about-card" #cardEl [@cardAnim]="cardVisibility[2] ? 'visible' : 'hidden'">
+                            <div class="icon-box">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <p class="card-label">GREW TO</p>
+                            <h6>VP Operations</h6>
+                            <p class="card-subtext">Global Project Delivery</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-md-6">
+                        <div class="about-card" #cardEl [@cardAnim]="cardVisibility[3] ? 'visible' : 'hidden'">
+                            <div class="icon-box">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <p class="card-label">LEADING</p>
+                            <h6>8+ Teams</h6>
+                            <p class="card-subtext">Cross-functional leadership</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
