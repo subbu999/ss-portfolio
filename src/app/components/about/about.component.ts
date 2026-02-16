@@ -55,7 +55,7 @@ import {
     trigger('cardAnim', [
       state('hidden', style({
         opacity: 0,
-        transform: 'translate(60px, -30px)'
+        transform: 'translate(0px, 30px)'
       })),
       state('visible', style({
         opacity: 1,
