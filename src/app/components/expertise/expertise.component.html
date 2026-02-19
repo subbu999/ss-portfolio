@@ -1,0 +1,35 @@
+<section class="expertise-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">EXPERTISE
+            </p>
+            <h2 class="section-title" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">
+                Domain & Leadership <span>Expertise</span>
+            </h2>
+            <p class="section-subtitle">INDUSTRY DOMAINS</p>
+        </div>
+
+        <div class="row g-4 px-lg-5">
+
+            <div class="col-md-6 col-lg-4" *ngFor="let item of expertiseList; let i = index">
+
+                <div #cardRef class="expertise-card" [@cardReveal]="cardVisibility[i] ? 'visible' : 'hidden'">
+
+                    <div class="icon-box">
+                        <i class="bi" [ngClass]="item.icon"></i>
+                    </div>
+
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.subtitle }}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
