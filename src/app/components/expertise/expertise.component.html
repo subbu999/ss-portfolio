@@ -2,16 +2,19 @@
 
     <div class="container">
 
-        <div class="text-center mb-5">
-            <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">EXPERTISE
-            </p>
-            <h2 class="section-title" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">
-                Domain & Leadership <span>Expertise</span>
-            </h2>
-            <p class="section-subtitle">INDUSTRY DOMAINS</p>
+        <div class="row text-center mb-5">
+            <div class="col-sm-12">
+                <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">ABOUT
+                    ME</p>
+
+                <h2 class="section-title" #headingEl [@headingAnim]="headingVisibility[1] ? 'visible' : 'hidden'">
+                    A Journey of Continuous
+                    <span>Evolution</span>
+                </h2>
+            </div>
         </div>
 
-        <div class="row g-4 px-lg-5">
+        <div class="row g-4 px-lg-5 mt-3">
 
             <div class="col-md-6 col-lg-4" *ngFor="let item of expertiseList; let i = index">
 
@@ -29,7 +32,30 @@
             </div>
 
         </div>
+        <!-- Leadership Capabilities -->
 
+        <div class="leadership-section mt-5 px-lg-5">
+
+            <p class="section-subtitle text-center mb-5">
+                LEADERSHIP CAPABILITIES
+            </p>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4" *ngFor="let item of leadershipList; let i = index">
+                    <div #capRef class="leadership-card"
+                        [@sideReveal]="capVisibility[i] ? 'visible' : (i % 2 === 0 ? 'hiddenLeft' : 'hiddenRight')">
+                        <i class="bi" [ngClass]="item.icon"></i>
+                        <span>{{ item.title }}</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
+    <!-- Section Ending Line -->
+    <div class="section-divider"></div>
 
 </section>

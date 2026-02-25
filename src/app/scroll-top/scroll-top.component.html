@@ -1,0 +1,13 @@
+<div class="scroll-wrapper" [class.visible]="showButton" (click)="scrollToTop()">
+
+    <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" cx="30" cy="30" r="26"
+            [style.stroke-dashoffset]="164 - (164 * scrollProgress / 100)">
+        </circle>
+    </svg>
+
+    <div class="arrow">
+        <i class="bi bi-arrow-up-short"></i>
+    </div>
+
+</div>

@@ -1,0 +1,53 @@
+.scroll-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #162248;
+  user-select: none;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+
+  z-index: 999;
+}
+.scroll-wrapper:hover{
+    background-color: #01195d;
+}
+
+.scroll-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-ring {
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.progress-ring__circle {
+  fill: transparent;
+  stroke: #e0b505;
+  stroke-width: 2;
+  stroke-dasharray: 164;
+  stroke-dashoffset: 164;
+  transition: stroke-dashoffset 0.2s linear;
+}
+
+.arrow {
+  position: relative;
+  font-size: 25px;
+  color: #d7940f;
+}
+
+

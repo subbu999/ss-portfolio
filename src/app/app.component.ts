@@ -5,12 +5,14 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { JourneyComponent } from './components/journey/journey.component';
 import { ExpertiseComponent } from './components/expertise/expertise.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
     NavbarComponent,
+    ScrollTopComponent,
     HeroComponent,
     AboutComponent,
     JourneyComponent,

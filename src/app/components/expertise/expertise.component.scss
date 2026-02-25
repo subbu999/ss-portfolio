@@ -70,3 +70,34 @@
   font-size: 14px;
   margin: 0;
 }
+.leadership-card {
+  background: #081529;
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.4s ease-in-out;
+}
+
+.leadership-card:hover {
+  border-color: rgba(250,204,21,0.4);
+}
+
+.leadership-card i {
+  font-size: 18px;
+    color: #facc15;
+}
+
+.leadership-card span {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+/* Section Ending Divider */
+.section-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin-top: 120px;
+}

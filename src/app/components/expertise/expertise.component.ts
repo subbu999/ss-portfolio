@@ -36,6 +36,25 @@ import {
         )
       ])
     ]),
+    //  Leadership Anim
+    trigger('sideReveal', [
+  state('hiddenLeft', style({
+    opacity: 0,
+    transform: 'translateX(-60px)'
+  })),
+  state('hiddenRight', style({
+    opacity: 0,
+    transform: 'translateX(60px)'
+  })),
+  state('visible', style({
+    opacity: 1,
+    transform: 'translateX(0)'
+  })),
+  transition('* => visible', [
+    animate('1500ms cubic-bezier(.22,1,.36,1)')
+  ])
+]),
+    //  Heading animation
     //  Heading animation
     trigger('headingAnim', [
   state('hidden', style({
@@ -55,9 +74,11 @@ import {
 export class ExpertiseComponent implements AfterViewInit {
   @ViewChildren('headingEl') headings!: QueryList<ElementRef>;
   @ViewChildren('cardRef') cards!: QueryList<ElementRef>;
+  @ViewChildren('capRef') capabilities!: QueryList<ElementRef>;
 
   headingVisibility: boolean[] = [];
   cardVisibility: boolean[] = [];
+  capVisibility: boolean[] = [];
 
   expertiseList = [
     {
@@ -91,51 +112,75 @@ export class ExpertiseComponent implements AfterViewInit {
       icon: 'bi-globe'
     }
   ];
+  leadershipList = [
+    { title: 'Strategy Planning & Execution', icon: 'bi-bullseye' },
+    { title: 'Budget Management & P&L', icon: 'bi-currency-dollar' },
+    { title: 'Stakeholder Management', icon: 'bi-people' },
+    { title: 'Onsite-Offshore Coordination', icon: 'bi-layers' },
+    { title: 'Project Sales & Delivery', icon: 'bi-rocket' },
+    { title: 'Resource & Risk Management', icon: 'bi-shield-check' }
+  ];
+
 
   ngAfterViewInit(): void {
 
-    requestAnimationFrame(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
 
-      this.cards.forEach((card, index) => {
+      entries.forEach(entry => {
 
-        this.cardVisibility[index] = false;
+        const index = Number(entry.target.getAttribute('data-index'));
+        const type = entry.target.getAttribute('data-type');
 
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              this.cardVisibility[index] = true;
-              observer.unobserve(card.nativeElement);
-            }
-          },
-          { threshold: 0.2 }
-        );
+        if (entry.isIntersecting) {
 
-        observer.observe(card.nativeElement);
+          if (type === 'heading') {
+            setTimeout(() => {
+          this.headingVisibility[index] = true;
+        }, index * 250);
+          }
+
+          if (type === 'card') {
+            this.cardVisibility[index] = true;
+          }
+
+          if (type === 'cap') {
+            this.capVisibility[index] = true;
+          }
+
+          observer.unobserve(entry.target);
+        }
+
       });
 
-    });
-    
-    this.headings.forEach((item, index) => {
+    },
+    { threshold: 0.2 }
+  );
 
-      this.headingVisibility[index] = false;
+  // Observe headings
+  this.headings.forEach((el, i) => {
+    this.headingVisibility[i]=false;
+    el.nativeElement.setAttribute('data-index', i);
+    el.nativeElement.setAttribute('data-type', 'heading');
+    observer.observe(el.nativeElement);
+  });
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
+  // Observe expertise cards
+  this.cards.forEach((el, i) => {
+    el.nativeElement.setAttribute('data-index', i);
+    el.nativeElement.setAttribute('data-type', 'card');
+    observer.observe(el.nativeElement);
+  });
 
-            setTimeout(() => {
-              this.headingVisibility[index] = true;
-            }, 120);
+  // Observe leadership cards
+  this.capabilities.forEach((el, i) => {
+    el.nativeElement.setAttribute('data-index', i);
+    el.nativeElement.setAttribute('data-type', 'cap');
+    observer.observe(el.nativeElement);
+  });
 
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.35 }
-      );
+}
 
-      observer.observe(item.nativeElement);
-    });
-  }
 
   
 }
