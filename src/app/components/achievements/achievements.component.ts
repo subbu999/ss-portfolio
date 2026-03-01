@@ -15,11 +15,11 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-expertise',
+  selector: 'app-achievements',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './expertise.component.html',
-  styleUrls: ['./expertise.component.scss'],
+  templateUrl: './achievements.component.html',
+  styleUrl: './achievements.component.scss',
   animations: [
     trigger('cardReveal', [
       state('hidden', style({
@@ -35,25 +35,7 @@ import {
           '900ms cubic-bezier(.22,1,.36,1)'
         )
       ])
-    ]),
-    //  Leadership Anim
-    trigger('sideReveal', [
-  state('hiddenLeft', style({
-    opacity: 0,
-    transform: 'translateX(-60px)'
-  })),
-  state('hiddenRight', style({
-    opacity: 0,
-    transform: 'translateX(60px)'
-  })),
-  state('visible', style({
-    opacity: 1,
-    transform: 'translateX(0)'
-  })),
-  transition('* => visible', [
-    animate('1500ms cubic-bezier(.22,1,.36,1)')
-  ])
-]),
+    ]),  
     
     //  Heading animation
     trigger('headingAnim', [
@@ -71,58 +53,47 @@ import {
 ])
   ]
 })
-export class ExpertiseComponent implements AfterViewInit {
-  @ViewChildren('headingEl') headings!: QueryList<ElementRef>;
-  @ViewChildren('cardRef') cards!: QueryList<ElementRef>;
-  @ViewChildren('capRef') capabilities!: QueryList<ElementRef>;
+export class AchievementsComponent {
+@ViewChildren('headingEl') headings!: QueryList<ElementRef>;
+@ViewChildren('cardRef') cards!: QueryList<ElementRef>;
 
   headingVisibility: boolean[] = [];
   cardVisibility: boolean[] = [];
-  capVisibility: boolean[] = [];
-
-  expertiseList = [
+  achievementsList = [
     {
-      title: 'Financial Services',
-      subtitle: 'Banking, Insurance & FinTech solutions',
-      icon: 'bi-bank'
+      title: 'Projects Delivered Annually',
+      subtitle: 'Across multiple domains',
+      number: 35
     },
     {
-      title: 'Healthcare',
-      subtitle: 'Hospital systems & patient management',
-      icon: 'bi-heart'
+      title: 'Teams Led Simultaneously',
+      subtitle: 'Cross-functional & global',
+      number: 8
     },
     {
-      title: 'Retail & E-Commerce',
-      subtitle: 'Omnichannel & supply chain platforms',
-      icon: 'bi-cart'
+      title: 'Years of Experience',
+      subtitle: 'Continuous growth',
+      number: 16
     },
     {
-      title: 'Government',
-      subtitle: 'Public sector digital transformation',
-      icon: 'bi-building'
+      title: 'Industry Domains',
+      subtitle: 'Deep expertise',
+      number: 6
     },
     {
-      title: 'Pharma & Life Sciences',
-      subtitle: 'Regulatory & R&D management',
-      icon: 'bi-capsule'
+      title: 'Certifications',
+      subtitle: 'ServiceNow & Agile',
+      number: 10
     },
     {
-      title: 'Global Enterprises',
-      subtitle: 'Multi-geography operations',
-      icon: 'bi-globe'
+      title: 'Projects Delivered',
+      subtitle: 'End-to-end execution',
+      number: 100
     }
   ];
-  leadershipList = [
-    { title: 'Strategy Planning & Execution', icon: 'bi-bullseye' },
-    { title: 'Budget Management & P&L', icon: 'bi-currency-dollar' },
-    { title: 'Stakeholder Management', icon: 'bi-people' },
-    { title: 'Onsite-Offshore Coordination', icon: 'bi-layers' },
-    { title: 'Project Sales & Delivery', icon: 'bi-rocket' },
-    { title: 'Resource & Risk Management', icon: 'bi-shield-check' }
-  ];
+  counters: number[] = this.achievementsList.map(() => 0);
 
-
-  ngAfterViewInit(): void {
+ngAfterViewInit(): void {
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -142,15 +113,11 @@ export class ExpertiseComponent implements AfterViewInit {
 
           if (type === 'card') {
             this.cardVisibility[index] = true;
+            this.animateCounter(index, this.achievementsList[index].number, 1000);
           }
-
-          if (type === 'cap') {
-            this.capVisibility[index] = true;
-          }
-
+          
           observer.unobserve(entry.target);
         }
-
       });
 
     },
@@ -171,16 +138,24 @@ export class ExpertiseComponent implements AfterViewInit {
     el.nativeElement.setAttribute('data-type', 'card');
     observer.observe(el.nativeElement);
   });
-
-  // Observe leadership cards
-  this.capabilities.forEach((el, i) => {
-    el.nativeElement.setAttribute('data-index', i);
-    el.nativeElement.setAttribute('data-type', 'cap');
-    observer.observe(el.nativeElement);
-  });
-
 }
 
+private animateCounter(index: number, target: number, duration: number) {
+  const startTime = performance.now();
 
+  const step = (currentTime: number) => {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const value = Math.floor(progress * target);
+
+    this.counters[index] = value;
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  };
+
+  requestAnimationFrame(step);
+}
+
+}
   
-}

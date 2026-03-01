@@ -1,0 +1,92 @@
+<section class="contact-section">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+            <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">CONTACT</p>
+            <h2 class="section-title pb-3" #headingEl [@headingAnim]="headingVisibility[1] ? 'visible' : 'hidden'">
+                Let's <span>Connect</span>
+            </h2>
+            <p class="section-subtitle pb-4">
+                Interested in collaboration or have a question? I'd love to hear from you.
+            </p>
+        </div>
+
+        <div class="row g-5 px-lg-5">
+
+            <!-- Left Info Card -->
+            <div class="col-lg-5 px-lg-5">
+                <div class="contact-info-card">
+
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <h6>Email</h6>
+                            <p>srikanth&#64;email.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-linkedin"></i>
+                        <div>
+                            <h6>LinkedIn</h6>
+                            <p>Connect with me</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <h6>Location</h6>
+                            <p>Open to Global Opportunities</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="col-lg-7 px-lg-5">
+                <div class="contact-form-card">
+
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+
+                        <!-- Name -->
+                        <div class="form-group" [class.filled]="form.get('name')?.value">
+                            <input type="text" formControlName="name" />
+                            <label>Your Name</label>
+                            <span class="underline"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group" [class.filled]="form.get('email')?.value">
+                            <input type="email" formControlName="email" />
+                            <label>Email Address</label>
+                            <span class="underline"></span>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group" [class.filled]="form.get('message')?.value">
+                            <textarea rows="5" formControlName="message"></textarea>
+                            <label>Message</label>
+                            <span class="underline"></span>
+                        </div>
+
+                        <button type="submit" class="send-btn">
+                            <i class="bi bi-send"></i>
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section-divider"></div>
+
+</section>

@@ -63,9 +63,10 @@ export class HeroComponent {
   imageVisible = true;
   
 
-  @HostListener('window:scroll')
+  
   @ViewChildren('headingEl') headings!: QueryList<ElementRef>;
   headingVisibility: boolean[] = [];
+  @HostListener('window:scroll')
   onScroll() {
     this.imageVisible = window.scrollY < 120;
   }
@@ -74,7 +75,7 @@ export class HeroComponent {
     if (!this.statsBlock) return;
     this.observer = new IntersectionObserver(
   ([entry]) => {
-    if (entry.isIntersecting && !this.isAnimating) {
+    if (entry.isIntersecting && !this.isAnimating) { 
       this.isAnimating = true;
 
       this.animateCounter('experience', 16, 1000);
