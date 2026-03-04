@@ -9,7 +9,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './pre-loader.component.scss'
 })
 export class PreLoaderComponent implements OnInit {
-  letters = 'SREEKANTH'.split('');
+  letters = 'SRIKANTH'.split('');
   ngOnInit() {
     document.body.style.overflow='hidden';
   }
