@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top px-3" [ngClass]="{'scrolled': isScrolled}">
+<nav class="navbar navbar-expand-lg fixed-top px-3" [ngClass]="{'scrolled': isScrolled}" id="mainNavbar">
 
     <div class="container">
 
@@ -26,30 +26,32 @@
 
         <ul class="navbar-nav text-start">
             <li class="nav-item">
-                <a class="nav-link" href="#home" (click)="closeMenu()">Home</a>
+                <a class="nav-link" href="#home" data-section="home" (click)="closeMenu()">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#about" (click)="closeMenu()">About</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#journey" (click)="closeMenu()">Journey</a>
+                <a class="nav-link" href="#about" data-section="about" (click)="closeMenu()">About</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#expertise" (click)="closeMenu()">Expertise</a>
+                <a class="nav-link" href="#journey" data-section="journey" (click)="closeMenu()">Journey</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#achievements" (click)="closeMenu()">Achievements</a>
+                <a class="nav-link" href="#expertise" data-section="expertise" (click)="closeMenu()">Expertise</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#certifications" (click)="closeMenu()">Certifications</a>
+                <a class="nav-link" href="#achievements" data-section="achievements"
+                    (click)="closeMenu()">Achievements</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#contact" (click)="closeMenu()">Contact</a>
+                <a class="nav-link" href="#certifications" data-section="certifications"
+                    (click)="closeMenu()">Certifications</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contact" data-section="contact" (click)="closeMenu()">Contact</a>
             </li>
 
         </ul>

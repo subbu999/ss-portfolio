@@ -26,6 +26,9 @@
 .nav-link:hover {
   color: var(--accent-yellow);
 }
+.nav-link.active {
+  color: var(--accent-yellow) !important;
+}
 
 /* Active-like glow effect */
 .navbar.scrolled .nav-link {
