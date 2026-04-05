@@ -14,13 +14,24 @@
 /* Logo */
 .logo-img img{
   height: 50px;
+  width: fit-content;
 }
+
+/* Desktop */
+.desktop-menu {
+  display: flex;
+}
+.mobile-menu {
+  display: none;
+}
+
 
 /* Nav Links */
 .nav-link {
   color: var(--text-muted);
   font-weight: 500;
   transition: all 0.3s ease;
+  margin-right: 10px;
 }
 
 .nav-link:hover {
@@ -65,6 +76,12 @@
 /* MOBILE MENU SYSTEM */
 
 @media (max-width: 991px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+  display: block;
+}
 
   /* Sliding menu panel */
   .mobile-menu {
@@ -98,7 +115,7 @@
 
   /* Nav spacing */
   .mobile-menu .nav-item {
-    margin-bottom: 22px;
+    margin-bottom: 15px;
   }
 
   .mobile-menu .nav-link {

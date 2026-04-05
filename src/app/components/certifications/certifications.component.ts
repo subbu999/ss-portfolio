@@ -66,16 +66,19 @@ export class CertificationsComponent {
     { code: 'CSA', title: 'Certified System Administrator' },
     { code: 'CIS-DF', title: 'CIS — Discovery Fundamentals' },
     { code: 'CIS-ITSM', title: 'CIS — IT Service Management' },
-    { code: 'CIS-HRSD', title: 'CIS — HR Service Delivery' }
+    { code: 'CIS-HRSD', title: 'CIS — HR Service Delivery' },
+    { code: 'CIS-ITOM', title: 'IT Operational Management' }
   ];
 
   microsoftCerts = [
     { code: 'MCPA', title: 'Microsoft Certified Power Automate' },
     { code: 'MCP', title: 'Microsoft Certified Professional' }
   ];
-
+  awsCerts = [{ code: 'ASAA', title: 'AWS Certified Solutions Architect Associate' }];
   agileCerts = [
-    { code: 'CSM', title: 'Certified Scrum Master' }
+    { code: 'CSM', title: 'Certified Scrum Master' },
+    { code: 'ITIL', title: 'Certified ITIL V 4 Specialist' },
+    { code: 'PMI', title: 'PMP certified Project Manager' }
   ];
 
   ngAfterViewInit(): void {   

@@ -63,12 +63,12 @@ export class AchievementsComponent {
     {
       title: 'Projects Delivered Annually',
       subtitle: 'Across multiple domains',
-      number: 35
+      number: 135
     },
     {
       title: 'Teams Led Simultaneously',
       subtitle: 'Cross-functional & global',
-      number: 8
+      number: 18
     },
     {
       title: 'Years of Experience',
@@ -78,17 +78,17 @@ export class AchievementsComponent {
     {
       title: 'Industry Domains',
       subtitle: 'Deep expertise',
-      number: 6
+      number: 8
     },
     {
       title: 'Certifications',
-      subtitle: 'ServiceNow & Agile',
-      number: 10
+      subtitle: 'ServiceNow, Agile, Microsoft, ITIL & AWS',
+      number: 14
     },
     {
-      title: 'Projects Delivered',
+      title: 'Projects Delivered Till Now',
       subtitle: 'End-to-end execution',
-      number: 100
+      number: 28
     }
   ];
   counters: number[] = this.achievementsList.map(() => 0);

@@ -82,7 +82,7 @@ export class ExpertiseComponent implements AfterViewInit {
 
   expertiseList = [
     {
-      title: 'Financial Services',
+      title: 'Bankin and Financial Services',
       subtitle: 'Banking, Insurance & FinTech solutions',
       icon: 'bi-bank'
     },
@@ -92,7 +92,7 @@ export class ExpertiseComponent implements AfterViewInit {
       icon: 'bi-heart'
     },
     {
-      title: 'Retail & E-Commerce',
+      title: 'Reatail, Online and Supply Chain Platforms',
       subtitle: 'Omnichannel & supply chain platforms',
       icon: 'bi-cart'
     },
@@ -108,7 +108,7 @@ export class ExpertiseComponent implements AfterViewInit {
     },
     {
       title: 'Global Enterprises',
-      subtitle: 'Multi-geography operations',
+      subtitle: 'IT & Multi-geography operations',
       icon: 'bi-globe'
     }
   ];
@@ -118,7 +118,10 @@ export class ExpertiseComponent implements AfterViewInit {
     { title: 'Stakeholder Management', icon: 'bi-people' },
     { title: 'Onsite-Offshore Coordination', icon: 'bi-layers' },
     { title: 'Project Sales & Delivery', icon: 'bi-rocket' },
-    { title: 'Resource & Risk Management', icon: 'bi-shield-check' }
+    { title: 'Resource & Risk Management', icon: 'bi-shield-check' },
+    { title: 'Multi-Region Delivery Leadership', icon: 'bi bi-globe2' },
+    { title: 'Global Solution Architecture', icon: 'bi bi-diagram-3' },
+    { title: 'Governance & Compliance', icon: 'bi-shield-lock' }
   ];
 
 

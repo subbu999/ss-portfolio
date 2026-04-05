@@ -86,13 +86,51 @@
 
         </div>
 
+        <!-- ================= Amazon ================= -->
+
+        <div class="cert-group">
+
+            <div class="group-title">
+                <span></span>
+                Amazon Web Services
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4" *ngFor="let cert of awsCerts;let i = index">
+
+                    <div class="cert-card" #cardRef [attr.data-index]="i + microsoftCerts.length+serviceNowCerts.length"
+                        [attr.data-type]="'card'"
+                        [@cardReveal]="cardVisibility[i + microsoftCerts.length+serviceNowCerts.length] ? 'visible' : 'hidden'">
+
+                        <div class="cert-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+
+                        <div class="cert-text">
+                            <h5>{{cert.code}}</h5>
+                            <p>{{cert.title}}</p>
+                        </div>
+
+                        <div class="cert-check">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- ================= AGILE ================= -->
 
         <div class="cert-group">
 
             <div class="group-title">
                 <span></span>
-                AGILE
+                AGILE, ITIL and PMI
             </div>
 
             <div class="row g-4 py-3">
@@ -100,8 +138,9 @@
                 <div class="col-md-4" *ngFor="let cert of agileCerts; let i = index">
 
                     <div class="cert-card" #cardRef
-                        [attr.data-index]="i + serviceNowCerts.length + microsoftCerts.length" [attr.data-type]="'card'"
-                        [@cardReveal]="cardVisibility[i + serviceNowCerts.length + microsoftCerts.length] ? 'visible' : 'hidden'">
+                        [attr.data-index]="i + serviceNowCerts.length + awsCerts.length + microsoftCerts.length"
+                        [attr.data-type]="'card'"
+                        [@cardReveal]="cardVisibility[i + awsCerts.length + microsoftCerts.length + serviceNowCerts.length] ? 'visible' : 'hidden'">
 
                         <div class="cert-icon">
                             <i class="bi bi-award"></i>

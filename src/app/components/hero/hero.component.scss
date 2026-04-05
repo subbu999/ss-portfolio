@@ -1,6 +1,6 @@
 .hero-section {
   min-height: 100vh;
-  padding-top: 120px;
+  padding-top: 80px;
   padding-bottom: 100px;
   background:
     /* Warm yellow glow (top-right) */
@@ -100,13 +100,13 @@
 ----------------------------- */
 
 .hero-subtitle {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   font-size: 1.4rem;
-  color: var(--text-muted);
+  color: var(--text-muted);  
+    line-height: 1.1;
   span{
     font-size: 0.9rem;
-    color: var(--text-muted);
     color: var(--text-muted2);
   }
 }
@@ -138,6 +138,8 @@
   border-radius: 12px;
   font-weight: 500;
   transition: all 0.25s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-primary-custom:hover {

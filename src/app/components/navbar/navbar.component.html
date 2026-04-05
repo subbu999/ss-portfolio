@@ -6,7 +6,41 @@
         <a class="navbar-brand fw-bold" href="#">
             <span class="logo-img"><img src="logo-png.png" alt=""></span>
         </a>
+        <ul class="navbar-nav mx-auto desktop-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="#home" data-section="home" (click)="closeMenu()">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about" data-section="about" (click)="closeMenu()">About</a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="#journey" data-section="journey" (click)="closeMenu()">Journey</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#expertise" data-section="expertise" (click)="closeMenu()">Expertise</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#achievements" data-section="achievements"
+                    (click)="closeMenu()">Achievements</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#certifications" data-section="certifications"
+                    (click)="closeMenu()">Certifications</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#blog" data-section="contact" (click)="closeMenu()">Blog</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contact" data-section="contact" (click)="closeMenu()">Contact</a>
+            </li>
+
+        </ul>
         <!-- Mobile Toggle -->
         <button class="navbar-toggler border-0" type="button" (click)="toggleMenu()">
             <span class="navbar-toggler-icon"></span>
@@ -19,11 +53,6 @@
 
     <!-- Sliding Menu -->
     <div class="mobile-menu" [class.open]="isMenuOpen">
-        <!-- Close Button -->
-        <button class="menu-close-btn" (click)="closeMenu()">
-            <i class="bi bi-x-lg"></i>
-        </button>
-
         <ul class="navbar-nav text-start">
             <li class="nav-item">
                 <a class="nav-link" href="#home" data-section="home" (click)="closeMenu()">Home</a>
@@ -51,10 +80,20 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="#blog" data-section="contact" (click)="closeMenu()">Blog</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="#contact" data-section="contact" (click)="closeMenu()">Contact</a>
             </li>
 
         </ul>
+        <!-- Close Button -->
+        <button class="menu-close-btn" (click)="closeMenu()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+
 
     </div>
 
