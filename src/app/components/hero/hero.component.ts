@@ -55,6 +55,8 @@ export class HeroComponent {
   projectsCount = 0;
   teamsLeadingCount=0;
   domainCount=0;
+  regionCount=0;
+  certCount=0;
   @ViewChild('statsBlock') statsBlock!:ElementRef;
   private observer!:IntersectionObserver;
   private hasAnimated = false;
@@ -83,6 +85,8 @@ export class HeroComponent {
       this.animateCounter('projects', 135, 1000);
       this.animateCounter('teams', 18, 1000);
       this.animateCounter('domain', 8, 1000);
+      this.animateCounter('region', 4, 1000);
+      this.animateCounter('certs', 14, 1000);
     }
     
 
@@ -92,6 +96,8 @@ export class HeroComponent {
       this.projectsCount = 0;
       this.teamsLeadingCount=0;
       this.domainCount=0;
+      this.regionCount=0;
+      this.certCount=0;
     }
   },
   { threshold: 0.4 }
@@ -122,7 +128,7 @@ export class HeroComponent {
     });
   }
   private animateCounter(
-    type: 'experience' | 'projects' | 'teams' | 'domain',
+    type: 'experience' | 'projects' | 'teams' | 'domain' | 'region' | 'certs',
     target: number,
     duration: number
   ) {
@@ -143,6 +149,12 @@ export class HeroComponent {
       }
       if(type==='domain') {
         this.domainCount = value;
+      }
+      if(type==='region') {
+        this.regionCount = value;
+      }
+      if(type==='certs') {
+        this.certCount = value;
       }
 
 

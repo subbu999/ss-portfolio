@@ -78,7 +78,7 @@ export class CertificationsComponent {
   agileCerts = [
     { code: 'CSM', title: 'Certified Scrum Master' },
     { code: 'ITIL', title: 'Certified ITIL V 4 Specialist' },
-    { code: 'PMI', title: 'PMP certified Project Manager' }
+    { code: 'PMP', title: 'PMP certified Project Manager' }
   ];
 
   ngAfterViewInit(): void {   
