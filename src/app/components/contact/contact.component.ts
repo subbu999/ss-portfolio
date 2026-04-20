@@ -1,5 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -47,7 +48,7 @@ export class ContactComponent {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http:HttpClient) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -82,12 +83,29 @@ this.headings.forEach((heading, index) => {
   }
 
   submit(): void {
+    
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    console.log(this.form.value);
-    this.form.reset();
+    const formData = new FormData();
+
+  formData.append('access_key', 'YOUR_ACCESS_KEY'); 
+  formData.append('name', this.form.value.name);
+  formData.append('email', this.form.value.email);
+  formData.append('message', this.form.value.message);
+  formData.append('subject', 'New Portfolio Contact Message');
+
+  this.http.post('https://api.web3forms.com/submit', formData)
+    .subscribe({
+      next: () => {
+        alert('Message sent successfully');
+        this.form.reset();
+      },
+      error: () => {
+        alert('Something went wrong');
+      }
+    });
   }
 }
